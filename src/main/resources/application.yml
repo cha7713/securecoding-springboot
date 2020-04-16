@@ -1,0 +1,42 @@
+spring:  
+  datasource:
+    driver-class-name:       com.mysql.jdbc.Driver 
+    url:        jdbc:mysql://127.0.0.1:3306/openeg 
+    username:        root
+    password:        apmsetup
+#  secondary:   
+#    datasource:
+#      hikari:
+#       driver-class-name:       com.microsoft.sqlserver.jdbc.SQLServerDriver 
+#       jdbc-url:        jdbc:sqlserver://localhost:11433;databaseName=board 
+#       username:        sa
+#       password:        qwer1234       
+  http:
+    encoding:
+      charset:    UTF-8
+  mvc:
+    view:
+      prefix:      /WEB-INF/jsp/
+      suffix:     .jsp
+server:
+  tomcat:
+    uri-encoding: UTF-8
+encryptor:
+   algorithm :        AES
+   cipher :       AES/CBC/PKCS5Padding
+   cipherModes:       CBC
+   encryptionKeyLength:       128
+   iv:        0x000102030405060708090a0b0c0d0e0f
+   hashAlgorithm:       SHA-512
+   hashIterations:        1024
+   characterEncoding:        UTF-8
+   masterSalt:        SbftnvmEWD5ZHHP+pX3fqugNysc=
+   masterKey:       pJhlri8JbuFYDgkqtHmm9s0Ziug2PE7ovZDyEPm4j14=
+   
+   
+   
+   
+   
+   
+   
+   
