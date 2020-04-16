@@ -10,7 +10,7 @@
 		Sorry, I can`t migrate	BoardCommentModel
 		See console output for further details 
 	-->	
-	<select id="getBoardList" parameterType="java.util.HashMap" resultType="BoardModel">
+	<select id="getBoardList" parameterType="java.util.HashMap" resultType="kr.co.openeg.lab.board.model.BoardModel">
 		select 
 			b.idx, b.writer, b.subject,
 			b.content, b.hitcount, b.recommendcount,
@@ -46,7 +46,7 @@
 		from board
 		where ${type} like '%${keyword}%'
 	</select>
-	<select id="searchArticle" parameterType="java.util.HashMap" resultType="BoardModel">
+	<select id="searchArticle" parameterType="java.util.HashMap" resultType="kr.co.openeg.lab.board.model.BoardModel">
 		select 
 			b.idx, b.writer, b.subject,
 			b.content, b.hitcount, b.recommendcount,
@@ -72,7 +72,7 @@
 	    	b.writedate, b.rnum, b.writerId, b.fileName, b.savedFileName
 	    order by b.idx desc		
 	</select>
-	<select id="getOneArticle" parameterType="int" resultType="BoardModel">
+	<select id="getOneArticle" parameterType="int" resultType="kr.co.openeg.lab.board.model.BoardModel">
 		select
 			idx,
 			writer,
@@ -87,7 +87,7 @@
 		from board
     	where idx = #{idx}
 	</select>
-	<select id="getCommentList" parameterType="int" resultType="BoardCommentModel">
+	<select id="getCommentList" parameterType="int" resultType="kr.co.openeg.lab.board.model.BoardCommentModel">
 		select 
 			idx, writer, content, 
 			writeDate, linkedArticleNum, writerId
@@ -95,7 +95,7 @@
   		where linkedArticleNum = #{idx}
   		order by idx desc
 	</select>
-	<select id="getOneComment" parameterType="int" resultType="BoardCommentModel">
+	<select id="getOneComment" parameterType="int" resultType="kr.co.openeg.lab.board.model.BoardCommentModel">
 		select 
 			idx, writer,
 			content, 
@@ -103,11 +103,11 @@
 		from board_comment
   		where idx = #{idx}		
 	</select>
-	<insert id="writeArticle" parameterType="BoardModel">
+	<insert id="writeArticle" parameterType="kr.co.openeg.lab.board.model.BoardModel">
 		insert into board(writer, subject, content, hitcount, recommendcount, writeDate, writerId, fileName, savedFileName)
 			values(#{writer}, #{subject}, #{content}, 0, 0,now(), #{writerId}, #{fileName}, #{savedFileName})
 	</insert>
-	<insert id="writeComment" parameterType="BoardCommentModel">
+	<insert id="writeComment" parameterType="kr.co.openeg.lab.board.model.BoardCommentModel">
 		insert into board_comment(writer, content, writeDate, linkedArticleNum, writerId)
 			values(#{writer}, #{content}, now(), #{linkedArticleNum}, #{writerId})
 	</insert>
@@ -134,7 +134,7 @@
 		from board
 		where idx = #{idx}	
 	</delete>
-	<update id="modifyArticle" parameterType="BoardModel">
+	<update id="modifyArticle" parameterType="kr.co.openeg.lab.board.model.BoardModel">
 		update board
 		set subject = #{subject},
 			content = #{content},
