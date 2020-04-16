@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<img src="error_01.gif">
+<img src="../img/error_01.gif">
 </body>
 </html>
