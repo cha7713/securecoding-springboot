@@ -17,7 +17,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 	 @Override
 	    public void addInterceptors(InterceptorRegistry registry) {
 	        registry.addInterceptor(sessionInterceptor)
-	                .addPathPatterns("/**.do");
+	                .addPathPatterns("/*");
 	    }
 	
 	

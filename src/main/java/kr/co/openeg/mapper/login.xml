@@ -11,7 +11,7 @@
 		See console output for further details 
 	-->
 	
-	<select id="loginCheck1" parameterType="String" resultType="LoginModel">
+	<select id="loginCheck1" parameterType="String" resultType="kr.co.openeg.lab.login.model.LoginSessionModel">
 		select 
 			idx,
 			userId,
@@ -21,7 +21,7 @@
 		from board_member
 		where userId = #{userId}
 	</select>	
-	<select id="loginCheck2" parameterType="LoginModel" resultType="LoginModel">
+	<select id="loginCheck2" parameterType="kr.co.openeg.lab.login.model.LoginSessionModel" resultType="kr.co.openeg.lab.login.model.LoginSessionModel">
 		select 
 			idx,
 			userId,
@@ -29,15 +29,15 @@
 			userName,
 			joinDate
 		from board_member
-		where userId = '${userId}' and userPw = '${userPw}'
+		where userId = #{userId} and userPw = #{userPw}
 	</select>	
 	
-	<insert id="addLoginHistory" parameterType="LoginHistory">
+	<insert id="addLoginHistory" parameterType="kr.co.openeg.lab.login.model.LoginHistory">
 		insert into login_history(userId,retry,lastFailedLogin,lastSuccessedLogin,clientIP)
 		values(#{userId},#{retry},#{lastFailedLogin},#{lastSuccessedLogin},#{clientIP})
 	</insert>	
 	
-	<update id="updateLoginHistory" parameterType="LoginHistory">
+	<update id="updateLoginHistory" parameterType="kr.co.openeg.lab.login.model.LoginHistory">
 		update  login_history  
 		      set  retry=#{retry},
 		            lastFailedLogin=#{lastFailedLogin},
@@ -46,7 +46,7 @@
 		 where idx=#{idx} and userId=#{userId}
 	</update>	
 	
-	<select id="findLoginHistory" parameterType="String" resultType="LoginHistory">
+	<select id="findLoginHistory" parameterType="String" resultType="kr.co.openeg.lab.login.model.LoginHistory">
 		select 
 		        idx,
 		        userId,

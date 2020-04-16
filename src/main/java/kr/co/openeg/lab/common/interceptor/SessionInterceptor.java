@@ -26,7 +26,7 @@ public class SessionInterceptor extends HandlerInterceptorAdapter{
 		// pass through when access login.do, join.do
 		
 		if(request.getRequestURI().equals("/login.do") || request.getRequestURI().equals("/member/join.do")){
-			if(userId != null){
+			if((userId != null) && (userId !="") ){
 				response.sendRedirect(request.getContextPath() + "/board/main.do");
 				return true;
 			} else {
@@ -35,7 +35,7 @@ public class SessionInterceptor extends HandlerInterceptorAdapter{
 		}
 		//
 		// where other pages		
-		if(userId == null){
+		if((userId == null) || (userId == "") ){
 			response.sendRedirect(request.getContextPath() + "/login.do");
 			HttpSession session=request.getSession();
 			session.setAttribute("errCode", "4");

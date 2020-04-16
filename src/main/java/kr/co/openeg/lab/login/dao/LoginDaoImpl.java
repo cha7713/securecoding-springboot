@@ -15,7 +15,7 @@ public class LoginDaoImpl implements LoginDao {
 	SqlSessionTemplate ss;
 
 	public LoginSessionModel selectUserId(String userId) {
-		return ss.selectOne("login.loginCheck1\", userId");
+		return ss.selectOne("login.loginCheck1", userId);
 		
 
 	}	

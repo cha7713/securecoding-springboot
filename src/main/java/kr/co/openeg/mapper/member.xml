@@ -11,18 +11,18 @@
 		See console output for further details 
 	-->
 	
-	<select id="selectOneMember" parameterType="int" resultType="MemberModel">
+	<select id="selectOneMember" parameterType="int" resultType="kr.co.openeg.lab.member.model.MemberModel">
 		select idx, userId, userPw, userName, pinNo,joinDate
 		from board_member
 		where idx = #{idx}
 	</select>
 	
-	<select id="selectAllMember" resultType="MemberModel">
+	<select id="selectAllMember" resultType="kr.co.openeg.lab.member.model.MemberModel">
 		select idx, userId, userPw, userName, pinNo,joinDate
 		from board_member
 	</select>
 	
-	<select id="findByUserId" parameterType="String" resultType="MemberModel">
+	<select id="findByUserId" parameterType="String" resultType="kr.co.openeg.lab.member.model.MemberModel">
 		select 
 			idx,
 			userId,
@@ -34,15 +34,15 @@
 		where userId = #{userId}
 	</select>
 	
-	<delete id="deleteMember" parameterType="MemberModel">
+	<delete id="deleteMember" parameterType="kr.co.openeg.lab.member.model.MemberModel">
 		delete from board_member where userId=#{userId}
 	</delete>	
 	
-	<insert id="addMember" parameterType="MemberModel">
+	<insert id="addMember" parameterType="kr.co.openeg.lab.member.model.MemberModel">
 		insert into board_member(userId, userPw, userName, pinNo,joinDate)
 		values(#{userId}, #{userPw}, #{userName}, #{pinNo},CURDATE())
 	</insert>	
-	<update id="updateMember" parameterType="MemberModel">
+	<update id="updateMember" parameterType="kr.co.openeg.lab.member.model.MemberModel">
 		update  board_member  set
 		   userPw=#{userPw}, 
 		   userName=#{userName},
@@ -52,19 +52,19 @@
 	</update>	
 	
 	
-	<insert id="addMemberSecurity" parameterType="MemberSecurity">
+	<insert id="addMemberSecurity" parameterType="kr.co.openeg.lab.member.model.MemberSecurity">
 		insert into openeg_security(userId, salt,secKey)
 		                 values(#{userId}, #{salt},#{secKey})
 	</insert>	
 	
-	<update id="updateMemberSecurity" parameterType="MemberSecurity">
+	<update id="updateMemberSecurity" parameterType="kr.co.openeg.lab.member.model.MemberSecurity">
 		update  openeg_security
 		      set  salt=#{salt},
 		            secKey=#{secKey},
 		      where userId=#{userId}
 	</update>	
 	
-	<select id="findMemberSecurityByUserId" parameterType="String" resultType="MemberSecurity">
+	<select id="findMemberSecurityByUserId" parameterType="String" resultType="kr.co.openeg.lab.member.model.MemberSecurity">
 		select userId,
 	              salt,
 	              secKey

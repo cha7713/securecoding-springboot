@@ -125,8 +125,8 @@ div.depth2{
 		<ul>
 			<li><a href="<%=request.getContextPath()%>/board/main.do">홈으로</a></li>
 			<li><a href="<%=request.getContextPath()%>/board/list.do">게시판</a></li>
-			<li><a href="#">보안코딩테스트</a></li>
-			<li><a href="#">ESAPI 테스트</a></li>
+			<li><a href="<%=request.getContextPath()%>/test/test_open.do?no=1">보안코딩테스트</a></li>
+			<li><a href="<%=request.getContextPath()%>/test/test_open.do?no=8">ESAPI 테스트</a></li>
   		   <li><a href="http://openeg.co.kr" target="_blank">OPENEG</a></li> 
 <!-- 			<li><a href="http://cafe.naver.com/sunschool" target="_blank">SunSchool</a></li> -->
 			<li><a href="<%=request.getContextPath()%>/test/init_db.do?id=${userId}"  onclick="return confirmInitDB();">DB초기화</a></li>
